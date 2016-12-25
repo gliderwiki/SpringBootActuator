@@ -1,31 +1,39 @@
-package com.libqa.web.repository;
+package com.libqa.web.entity;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 /**
  * @Author : yion
  * @Date : 2016. 12. 19.
- * @Description :
+ * @Description : 회원 정보 엔티티
  */
+@Entity
 public class User {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private long id;
 
-    private long idx;
+    @Column
     private String name;
+
+    @Column
     private String userId;
 
-    public User(long idx, String name, String userId) {
-        this.idx = idx;
+    public User() {
+    }
+
+    public User(String name, String userId) {
         this.name = name;
         this.userId = userId;
     }
 
-    public long getIdx() {
-        return idx;
+    public long getId() {
+        return id;
     }
 
-    public void setIdx(long idx) {
-        this.idx = idx;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -47,7 +55,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "idx=" + idx +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", userId='" + userId + '\'' +
                 '}';

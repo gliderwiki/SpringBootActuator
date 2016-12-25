@@ -1,6 +1,10 @@
 package com.libqa.web.repository;
 
+import com.libqa.web.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,36 +12,8 @@ import java.util.List;
 /**
  * @Author : yion
  * @Date : 2016. 12. 20.
- * @Description :
+ * @Description : User 리파지토리 인터페이스
  */
-@Component
-public class UserRepository {
-    List<User> userList = new ArrayList();
-    public UserRepository() {
-        User user1 = new User(1, "namhee", "quick");
-        User user2 = new User(2, "sonsiri", "dog");
-        User user3 = new User(3, "gunhae", "dak");
+public interface UserRepository extends JpaRepository<User, Long> {
 
-        userList.add(user1);
-        userList.add(user2);
-        userList.add(user3);
-    }
-
-    public User findByIdx(long idx) {
-        User user = null;
-        for (User u : userList) {
-
-            if (idx == u.getIdx()) {
-                user = u;
-            } else {
-                user = null;
-            }
-        }
-
-        return user;
-    }
-
-    public List<User> findAll() {
-        return userList;
-    }
 }
