@@ -1,63 +1,38 @@
 package com.libqa.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * @Author : yion
  * @Date : 2016. 12. 19.
  * @Description : 회원 정보 엔티티
  */
+@Data
 @Entity
-public class member {
+@AllArgsConstructor
+@NoArgsConstructor
+public class Member {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private long id;
+    @Column(name = "seq")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int seq;
 
-    @Column
+    @Column(name = "name")
     private String name;
 
-    @Column
-    private String userId;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "team_seq")  // @ManyToOne의 fetch 기본전략은 EAGER이다.
+    private Team team;
 
-    public member() {
-    }
-
-    public member(String name, String userId) {
-        this.name = name;
-        this.userId = userId;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    public Member(Team team, String name) {
+        this.team = team;
         this.name = name;
     }
 
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", userId='" + userId + '\'' +
-                '}';
-    }
 }
