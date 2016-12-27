@@ -30,7 +30,9 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
-    compile('org.springframework.boot:spring-boot-devtools')
+	compile('org.projectlombok:lombok:1.16.0')
+	compile('mysql:mysql-connector-java:5.1.28')
+	compile('org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc3:1.16')
 	compile('com.h2database:h2')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }

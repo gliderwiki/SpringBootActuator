@@ -1,7 +1,7 @@
-package com.libqa.web.service;
+package com.libqa.web.member.service;
 
-import com.libqa.web.entity.User;
-import com.libqa.web.repository.UserRepository;
+import com.libqa.entity.User;
+import com.libqa.web.member.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

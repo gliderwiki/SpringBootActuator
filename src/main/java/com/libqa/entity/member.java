@@ -1,4 +1,4 @@
-package com.libqa.web.entity;
+package com.libqa.entity;
 
 import javax.persistence.*;
 
@@ -8,7 +8,7 @@ import javax.persistence.*;
  * @Description : 회원 정보 엔티티
  */
 @Entity
-public class User {
+public class member {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -20,10 +20,10 @@ public class User {
     @Column
     private String userId;
 
-    public User() {
+    public member() {
     }
 
-    public User(String name, String userId) {
+    public member(String name, String userId) {
         this.name = name;
         this.userId = userId;
     }

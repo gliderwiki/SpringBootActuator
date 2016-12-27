@@ -1,7 +1,7 @@
-package com.libqa.web.controller;
+package com.libqa.web.member.controller;
 
-import com.libqa.web.entity.User;
-import com.libqa.web.service.UserService;
+import com.libqa.entity.User;
+import com.libqa.web.member.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

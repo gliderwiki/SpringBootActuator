@@ -1,4 +1,4 @@
-package com.libqa.rest;
+package com.libqa.api;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
