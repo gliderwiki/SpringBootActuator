@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Team List</h1>
+<ul>
+    <li th:each="team : ${teamList}" th:text="${team.teamName}"></li>
+</ul>
+
+<a href="/form">팀 등록하기</a>
+
+</body>
+</html>
