@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1><p th:text="${team.teamName}" /> 에 구성원을 등록하세요. </h1>
+<form action="#" th:action="@{/insert}" th:object="${member}" method="post">
+    <input type="hidden" th:value="${team.seq}" name="seq" />
+    <p>seq: <input type="text" th:field="*{seq}" /></p>
+    <p>name: <input type="text" th:field="*{name}" /></p>
+
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
+</body>
+</html>
