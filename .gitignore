@@ -15,6 +15,7 @@
 *.iws
 *.iml
 *.ipr
+.idea/libraries/
 
 ### NetBeans ###
 nbproject/private/
@@ -23,3 +24,5 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+gradlew
+gradlew.bat
