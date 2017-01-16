@@ -1,42 +1,47 @@
 buildscript {
-    repositories {          // 빌드 스크립트에서 의존 라이브러리를 찾는데 사용할 레파지토리를 선언한다
-        jcenter()
-    }
 
-    dependencies {          // 빌드 스크립트에서 사용할 의존 라이브러리르 선언한다
-        // 스프링 부트를 빌드하기 위한 그래들 플러그인
-        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.4.1.RELEASE'
-    }
-
+	ext {
+		springBootVersion = '1.4.2.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
 }
 
-// 적용 플러그인 기본 디렉토리 구조
 apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'spring-boot'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
 
-// jar로 패키징할 이름과 버전 명시
 jar {
-    baseName = 'springBootActuator'
-    version = '1.0.0-SNAPSHOT' // production 일 경우 1.0.0.RELEASE 와 같은 형태 권장
+	baseName = 'SpringBootActuator'
+	version = '0.0.1-SNAPSHOT'
 }
-
-// 프로젝트에서 의존 라이브러리를 찾는데 사용할 레파지토리 선언
-repositories {
-    mavenCentral()
-    maven {
-        url "http://repo.spring.io/release"
-    }
-}
-
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-// 프로젝트에서 컴파일, 테스트에 사용할 의존 라이브러리 선언
-dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web:1.4.1.RELEASE")
+repositories {
+	mavenCentral()
 }
 
 
-
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile('org.springframework.boot:spring-boot-starter-tomcat')
+	compile('org.springframework.boot:spring-boot-starter-security')
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile('org.springframework.boot:spring-boot-starter-remote-shell')
+	compile('org.springframework.boot:spring-boot-actuator-docs')
+	compile("org.springframework.boot:spring-boot-starter-hateoas")
+	compile('net.sourceforge.nekohtml:nekohtml:1.9.22')
+	compile('org.projectlombok:lombok:1.16.0')
+	compile('mysql:mysql-connector-java:5.1.28')
+	compile('org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc3:1.16')
+	compile('com.h2database:h2')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
 
